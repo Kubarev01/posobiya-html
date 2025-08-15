@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Карточка товара — Умная божья коровка</title>
+  <link href="./css/common.css" rel="stylesheet" />
+  <link href="./css/index.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* Только для карусели на странице товара */
+    #productCarousel .carousel-control-prev-icon,
+    #productCarousel .carousel-control-next-icon {
+      width: 3rem;
+      height: 3rem;
+      background-size: 100% 100%;
+      filter: none;
+    }
+
+    #productCarousel .carousel-control-prev-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.5 2 L5 8 L10.5 14'/%3E%3C/svg%3E");
+    }
+
+    #productCarousel .carousel-control-next-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.5 2 L11 8 L5.5 14'/%3E%3C/svg%3E");
+    }
+
+    /* Убираем излишнюю высоту страницы только на странице товара */
+    body {
+      min-height: 100vh;
+    }
+
+    /* Уменьшаем отступы в футере на странице товара */
+    footer .bottom-footer {
+      margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav  class="navbar navbar-expand-lg  text-center">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="./assets/navbar-logo.png" alt="Bootstrap" width="274" height="69" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="catalog.html">Каталог</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="delivery.html">Оплата и доставка</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Блог</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Контакты</a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex gap-3">
+        <button class="btn position-relative" type="button" onclick="window.location.href='cart.html'"><img src="./assets/cart.svg" alt="phone-icon" width="32" height="25">
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            4
+            <span class="visually-hidden">непрочитанные сообщения</span>
+          </span>
+        </button>
+        <span class="phone-number">+7 (960) 586-40-68</span>
+      </div>
+  </nav>
+
+  <main>
+    <div class="container-fluid mt-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+          <li class="breadcrumb-item"><a href="#">Каталог</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Умная божья коровка</li>
+        </ol>
+      </nav>
+
+      <div class="row g-5 align-items-center justify-content-center">
+        <div class="col-12 col-lg-4">
+          <div id="productCarousel" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./assets/good.png" class="d-block w-100" alt="Фото товара 1">
+              </div>
+              <div class="carousel-item">
+                <img src="./assets/good.png" class="d-block w-100" alt="Фото товара 2">
+              </div>
+              <div class="carousel-item">
+                <img src="./assets/good.png" class="d-block w-100" alt="Фото товара 3">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Следующий</span>
+            </button>
+          </div>
+
+          <div class="d-flex gap-2 mt-3">
+            <button type="button" class="btn p-0 border-0 bg-transparent" data-bs-target="#productCarousel" data-bs-slide-to="0" aria-label="Слайд 1">
+              <img src="./assets/good.png" width="100" height="100" class="rounded-4" alt="Миниатюра 1">
+            </button>
+            <button type="button" class="btn p-0 border-0 bg-transparent" data-bs-target="#productCarousel" data-bs-slide-to="1" aria-label="Слайд 2">
+              <img src="./assets/good.png" width="100" height="100" class="rounded-4" alt="Миниатюра 2">
+            </button>
+            <button type="button" class="btn p-0 border-0 bg-transparent" data-bs-target="#productCarousel" data-bs-slide-to="2" aria-label="Слайд 3">
+              <img src="./assets/good.png" width="100" height="100" class="rounded-4" alt="Миниатюра 3">
+            </button>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <h1 class="description-title mb-3">Умная божья коровка</h1>
+          <p class="text-muted mb-1">Артикул: <span class="fw-semibold">UBK-001</span></p>
+          <p class="mb-4 fs-5">Развивающая игра для детей 4–8 лет, помогающая тренировать логику, внимание и мелкую моторику. В комплекте идут игровые карточки и подробная инструкция.</p>
+
+          <h3 class="important mb-3" style="width:auto!important; font-size:32px;">Состав набора</h3>
+          <ul class="mb-4 fs-5">
+            <li>Игровое поле — 1 шт.</li>
+            <li>Карточки с заданиями — 50 шт.</li>
+            <li>Фишки и элементы мозаики — комплект</li>
+            <li>Инструкция — 1 шт.</li>
+          </ul>
+
+          <div class="d-grid" style="max-width: 360px;">
+            <button class="btn card-button">В корзину</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      
+
+        <div class="row-md-12 bottom-footer">
+          <div class="col-md-6"><img class="footer-logo"  src="./assets/footer-logo.png" alt=""></div>
+          <div class="col-md-3">
+            <p class="footer-center">
+            +7 960 586 40-68 posobiyakirillova@gmail.com
+          </p> <img src="./assets/whatsapp-logo.png" alt=""> 
+          <img src="./assets/vk-logo.png" alt="">
+          </div>
+          <div class="col-md-3">
+            <p class="footer-end">
+            Магазин
+            Оплата и доставка
+            Контакты
+            Политика возврата
+            Статьи о воспитании и развитии дошкольников
+            Свидетельство о депонировании произведения
+            Сертификат на развивающие игры
+            </p>
+            
+          </div>
+        </div>
+          
+          
+        </div>
+    </footer>
+  </main>
+
+  <button id="back-to-top-btn" title="Наверх">↑</button>
+  <script>
+    const backToTopBtn = document.getElementById('back-to-top-btn');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.style.display = 'block';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+    integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+

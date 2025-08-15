@@ -55,6 +55,10 @@ body{
 } */
 
 
+.carousel{
+    width: 100%;
+}
+
 #back-to-top-btn {
   display: none; /* Скрыта по умолчанию */
   position: fixed;

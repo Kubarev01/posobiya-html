@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Каталог — Пособия Кирилловой</title>
+  <link href="./css/common.css" rel="stylesheet" />
+  <link href="./css/index.css" rel="stylesheet" />
+  <link href="./css/catalog.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <nav  class="navbar navbar-expand-lg  text-center">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="./assets/navbar-logo.png" alt="Bootstrap" width="274" height="69" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="catalog.html">Каталог</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="delivery.html">Оплата и доставка</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Блог</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Контакты</a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex gap-3">
+        <button class="btn position-relative" type="button" onclick="window.location.href='cart.html'"><img src="./assets/cart.svg" alt="phone-icon" width="32" height="25">
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            4
+            <span class="visually-hidden">непрочитанные сообщения</span>
+          </span>
+        </button>
+        <span class="phone-number">+7 (960) 586-40-68</span>
+      </div>
+  </nav>
+
+  <main>
+    <div class="container-fluid mt-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Каталог</li>
+        </ol>
+      </nav>
+
+      <h2 class="catalog-title mb-4">Каталог</h2>
+
+      <section class="catalog-filters mb-4">
+        <div class="row g-3 align-items-end">
+          <div class="col-12 col-md-4">
+            <label for="searchInput" class="form-label">Поиск товара</label>
+            <input type="text" id="searchInput" class="form-control" placeholder="Название товара">
+          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <label for="categorySelect" class="form-label">Категория</label>
+            <select id="categorySelect" class="form-select">
+              <option value="">Все категории</option>
+              <option value="логика">Логика</option>
+              <option value="мозаика">Мозаика</option>
+              <option value="математика">Математика</option>
+              <option value="чтение">Чтение и речь</option>
+              <option value="внимание">Внимание и память</option>
+              <option value="творчество">Творчество</option>
+              <option value="буквы">Звуки и буквы</option>
+            </select>
+          </div>
+          <div class="col-6 col-sm-3 col-md-2">
+            <label for="priceMin" class="form-label">Цена от</label>
+            <input type="number" id="priceMin" class="form-control" placeholder="0" min="0">
+          </div>
+          <div class="col-6 col-sm-3 col-md-2">
+            <label for="priceMax" class="form-label">Цена до</label>
+            <input type="number" id="priceMax" class="form-control" placeholder="9999" min="0">
+          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <label for="sortSelect" class="form-label">Сортировка</label>
+            <select id="sortSelect" class="form-select">
+              <option value="">По умолчанию</option>
+              <option value="price-asc">Цена: по возрастанию</option>
+              <option value="price-desc">Цена: по убыванию</option>
+              <option value="pop-desc">Популярность</option>
+            </select>
+          </div>
+          <div class="col-12 col-sm-6 col-md-2 d-grid">
+            <button id="clearFilters" class="btn btn-outline-primary see-catalog">Сбросить</button>
+          </div>
+        </div>
+      </section>
+
+      <div id="catalogGrid" class="row g-4">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-category="логика" data-price="1490" data-popularity="95">
+          <div class="card h-100 card-good">
+            <img src="./assets/good.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Умная божья коровка</h5>
+              <small class="text-muted mb-2">1 490 ₽</small>
+              <div class="mt-auto d-flex gap-2">
+                <a href="good.html" class="btn btn-primary card-button">Подробнее</a>
+                <button class="btn btn-primary card-button">В корзину</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-category="мозаика" data-price="990" data-popularity="80">
+          <div class="card h-100 card-good">
+            <img src="./assets/good.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Мозаика «Логика»</h5>
+              <small class="text-muted mb-2">990 ₽</small>
+              <div class="mt-auto d-flex gap-2">
+                <a href="good.html" class="btn btn-primary card-button">Подробнее</a>
+                <button class="btn btn-primary card-button">В корзину</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-category="математика" data-price="1290" data-popularity="88">
+          <div class="card h-100 card-good">
+            <img src="./assets/good.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Счёт и формы</h5>
+              <small class="text-muted mb-2">1 290 ₽</small>
+              <div class="mt-auto d-flex gap-2">
+                <a href="good.html" class="btn btn-primary card-button">Подробнее</a>
+                <button class="btn btn-primary card-button">В корзину</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-category="буквы" data-price="1100" data-popularity="70">
+          <div class="card h-100 card-good">
+            <img src="./assets/good.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Звуки и буквы</h5>
+              <small class="text-muted mb-2">1 100 ₽</small>
+              <div class="mt-auto d-flex gap-2">
+                <a href="good.html" class="btn btn-primary card-button">Подробнее</a>
+                <button class="btn btn-primary card-button">В корзину</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-category="внимание" data-price="1150" data-popularity="76">
+          <div class="card h-100 card-good">
+            <img src="./assets/good.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Внимание и память</h5>
+              <small class="text-muted mb-2">1 150 ₽</small>
+              <div class="mt-auto d-flex gap-2">
+                <a href="good.html" class="btn btn-primary card-button">Подробнее</a>
+                <button class="btn btn-primary card-button">В корзину</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-category="чтение" data-price="990" data-popularity="82">
+          <div class="card h-100 card-good">
+            <img src="./assets/good.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Чтение и речь</h5>
+              <small class="text-muted mb-2">990 ₽</small>
+              <div class="mt-auto d-flex gap-2">
+                <a href="good.html" class="btn btn-primary card-button">Подробнее</a>
+                <button class="btn btn-primary card-button">В корзину</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-category="математика" data-price="1490" data-popularity="91">
+          <div class="card h-100 card-good">
+            <img src="./assets/good.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Математика</h5>
+              <small class="text-muted mb-2">1 490 ₽</small>
+              <div class="mt-auto d-flex gap-2">
+                <a href="good.html" class="btn btn-primary card-button">Подробнее</a>
+                <button class="btn btn-primary card-button">В корзину</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-category="творчество" data-price="890" data-popularity="60">
+          <div class="card h-100 card-good">
+            <img src="./assets/good.png" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Творчество</h5>
+              <small class="text-muted mb-2">890 ₽</small>
+              <div class="mt-auto d-flex gap-2">
+                <a href="good.html" class="btn btn-primary card-button">Подробнее</a>
+                <button class="btn btn-primary card-button">В корзину</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav aria-label="Навигация по страницам" class="mt-4">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Предыдущая</a>
+          </li>
+          <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Следующая</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <footer>
+      <div class="row-md-12 bottom-footer">
+        <div class="col-md-6"><img class="footer-logo"  src="./assets/footer-logo.png" alt=""></div>
+        <div class="col-md-3">
+          <p class="footer-center">
+          +7 960 586 40-68 posobiyakirillova@gmail.com
+        </p> <img src="./assets/whatsapp-logo.png" alt=""> 
+        <img src="./assets/vk-logo.png" alt="">
+        </div>
+        <div class="col-md-3">
+          <p class="footer-end">
+          Магазин
+          Оплата и доставка
+          Контакты
+          Политика возврата
+          Статьи о воспитании и развитии дошкольников
+          Свидетельство о депонировании произведения
+          Сертификат на развивающие игры
+          </p>
+          
+        </div>
+      </div>
+        
+        
+      </div>
+    </footer>
+  </main>
+
+  <button id="back-to-top-btn" title="Наверх">↑</button>
+  <script>
+    const backToTopBtn = document.getElementById('back-to-top-btn');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.style.display = 'block';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+
+  <script>
+    // Фильтрация и сортировка каталога
+    (function() {
+      const grid = document.getElementById('catalogGrid');
+      const cards = Array.from(grid.children);
+
+      const searchInput = document.getElementById('searchInput');
+      const categorySelect = document.getElementById('categorySelect');
+      const priceMin = document.getElementById('priceMin');
+      const priceMax = document.getElementById('priceMax');
+      const sortSelect = document.getElementById('sortSelect');
+      const clearBtn = document.getElementById('clearFilters');
+
+      function parsePrice(el) {
+        const v = el.getAttribute('data-price');
+        return v ? Number(v) : 0;
+        }
+
+      function parsePopularity(el) {
+        const v = el.getAttribute('data-popularity');
+        return v ? Number(v) : 0;
+      }
+
+      function getTitle(el) {
+        const title = el.querySelector('.card-title');
+        return title ? title.textContent.toLowerCase() : '';
+      }
+
+      function applyFilters() {
+        const q = (searchInput.value || '').toLowerCase().trim();
+        const cat = categorySelect.value;
+        const min = priceMin.value ? Number(priceMin.value) : -Infinity;
+        const max = priceMax.value ? Number(priceMax.value) : Infinity;
+
+        cards.forEach(col => {
+          const price = parsePrice(col);
+          const category = (col.getAttribute('data-category') || '').toLowerCase();
+          const title = getTitle(col);
+
+          const matchesSearch = q === '' || title.includes(q);
+          const matchesCategory = !cat || category === cat;
+          const matchesPrice = price >= min && price <= max;
+
+          col.style.display = (matchesSearch && matchesCategory && matchesPrice) ? '' : 'none';
+        });
+
+        applySort();
+      }
+
+      function applySort() {
+        const value = sortSelect.value;
+        const visible = cards.filter(c => c.style.display !== 'none');
+        const hidden = cards.filter(c => c.style.display === 'none');
+
+        let sorted = [...visible];
+        if (value === 'price-asc') {
+          sorted.sort((a,b) => parsePrice(a) - parsePrice(b));
+        } else if (value === 'price-desc') {
+          sorted.sort((a,b) => parsePrice(b) - parsePrice(a));
+        } else if (value === 'pop-desc') {
+          sorted.sort((a,b) => parsePopularity(b) - parsePopularity(a));
+        }
+
+        // Перестроить DOM: сначала отсортированные видимые, потом скрытые
+        sorted.concat(hidden).forEach(node => grid.appendChild(node));
+      }
+
+      function clearFilters() {
+        searchInput.value = '';
+        categorySelect.value = '';
+        priceMin.value = '';
+        priceMax.value = '';
+        sortSelect.value = '';
+        cards.forEach(c => c.style.display = '');
+        applySort();
+      }
+
+      searchInput.addEventListener('input', applyFilters);
+      categorySelect.addEventListener('change', applyFilters);
+      priceMin.addEventListener('input', applyFilters);
+      priceMax.addEventListener('input', applyFilters);
+      sortSelect.addEventListener('change', applySort);
+      clearBtn.addEventListener('click', clearFilters);
+    })();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+    integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+

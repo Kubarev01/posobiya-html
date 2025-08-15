@@ -1,0 +1,52 @@
+.catalog-title {
+    width: 50% !important;
+    color:#00939E;
+    font-size: 48px;
+    font-weight: 700;
+    padding-left: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+.pagination .page-link {
+    color: #00939E;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #75C32C;
+    border-color: #75C32C;
+    color: #fff;
+}
+
+.pagination .page-link:focus,
+.pagination .page-link:hover {
+    color: #006972;
+}
+
+/* Панель фильтров */
+.catalog-filters .form-label {
+    color: #00939E;
+    font-weight: 700;
+}
+
+.catalog-filters .form-control,
+.catalog-filters .form-select {
+    border-radius: 20px;
+}
+
+.catalog-filters #clearFilters {
+    border: 3px solid #00939E !important;
+    color: #00939E !important;
+}
+
+.catalog-filters #clearFilters:hover {
+    background-color: #00939E !important;
+    color: #fff !important;
+}
+
+/* Уменьшим общую высоту страницы каталога */
+body {
+    min-height: 130vh;
+}
+
+
